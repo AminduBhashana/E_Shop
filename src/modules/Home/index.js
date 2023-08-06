@@ -27,7 +27,6 @@ const Home = () => {
         }
         <Products/>
         <FeatureCard/>
-        <Footer/>
       </>
     )
 }
