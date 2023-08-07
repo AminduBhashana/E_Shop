@@ -1,8 +1,8 @@
 import React from "react";
-
+import image from '../../assets/image1.png'
 const Hero = () => {
   return (
-    <section className="text-gray-600 body-font mt-20">
+    <section className="text-gray-600 body-font">
       <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
           <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
@@ -28,7 +28,7 @@ const Hero = () => {
           <img
             className="object-cover object-center rounded"
             alt="hero"
-            src="https://dummyimage.com/720x600"
+            src={image}
           />
         </div>
       </div>
