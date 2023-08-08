@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function calculateDiscountedPrice(originalPrice, discountPercentage) {
   return originalPrice - originalPrice * (discountPercentage / 100);
@@ -7,6 +7,7 @@ function calculateDiscountedPrice(originalPrice, discountPercentage) {
 
 const Product = () => {
   const { id } = useParams();
+  const navigate = useNavigate()
 
   const [product, setProduct] = useState({});
   console.log(id, "id", product);
@@ -19,6 +20,31 @@ const Product = () => {
     };
     fetchProduct();
   }, []);
+
+  const handleCart = (product, redirect) => {
+    console.log(product)
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const isProductExist = cart.find(item => item.id === product.id)
+    if(isProductExist) {
+      const updatedCart = cart.map(item => {
+        if(item.id === product.id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1
+          }
+        }
+        return item
+      })
+      localStorage.setItem('cart', JSON.stringify(updatedCart))
+    } else {
+      localStorage.setItem('cart', JSON.stringify([...cart, {...product, quantity: 1}]))
+    }
+    alert('Product added to cart')
+    if(redirect) {
+      navigate('/cart')
+    }
+  }
+
   if(!Object.keys(product).length > 0) return <div>Loading.....</div>
   return (
     <section className="text-gray-600 body-font overflow-hidden">
@@ -123,10 +149,10 @@ const Product = () => {
             </div>
 
             <div className="flex mt-6 items-start space-x-2">
-              <button className="text-white bg-blue-500 border-0 py-2 px-4 focus:outline-none hover:bg-blue-600 rounded">
+              <button className="text-white bg-blue-500 border-0 py-2 px-4 focus:outline-none hover:bg-blue-600 rounded" onClick={() => handleCart(product, true)}>
                 Buy it now
               </button>
-              <button className="border border-blue-500 py-2 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded">
+              <button className="border border-blue-500 py-2 px-4 focus:outline-none hover:bg-blue-600 hover:text-white rounded" onClick={() => handleCart(product)}>
                 Add to cart
               </button>
             </div>
