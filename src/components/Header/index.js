@@ -16,7 +16,7 @@ const navigations = [
   },
   {
     name: 'Contact',
-    path: '/contact'
+    path: '/contact-us'
   }
 ]
 

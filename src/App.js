@@ -9,6 +9,7 @@ import AboutUs from './modules/AboutUs';
 import { Routes ,Route } from 'react-router-dom'
 import CategoryProducts from './modules/CategoryProduct';
 import Cart from './modules/Cart';
+import ContactUs from './modules/ContactUs';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/categories/:name" element={<CategoryProducts/>} />
         <Route path="cart" element={<Cart/>} />
         <Route path="/about-us" element={<AboutUs/>} /> 
+        <Route path="/contact-us" element={<ContactUs/>} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
       <Footer/>
