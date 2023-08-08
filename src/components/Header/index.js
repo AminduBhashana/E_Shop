@@ -12,7 +12,7 @@ const navigations = [
   },
   {
     name: 'About',
-    path: '/about'
+    path: '/about-us'
   },
   {
     name: 'Contact',
