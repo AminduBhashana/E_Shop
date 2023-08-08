@@ -19,6 +19,4 @@ const Categories = () => {
         <FeatureCard cards={categories}/>
     )
   }
-  
-
 export default Categories;

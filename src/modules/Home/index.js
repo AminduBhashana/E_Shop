@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Hero from '../../components/Hero';
 import Products from '../../components/ProductCard';
-import FeatureCard from '../../components/FeatureCard';
-import Footer from '../../components/Footer';
 import ProductCard from '../../components/ProductCard';
 import Categories from '../../components/Categories';
+
 
 const Home = () => {
     const [products ,setProducts] = useState([])
