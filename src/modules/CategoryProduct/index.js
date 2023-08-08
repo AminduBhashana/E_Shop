@@ -23,9 +23,8 @@ const CategoryProducts = () => {
       <h2 className="text-lg text-blue-500 tracking-widest font-medium title-font mb-1 uppercase">{name}</h2>
       <ProductCard products={products} />
       </div>
-      </>
-   
+      </>  
     )
   }
-
+  
 export default CategoryProducts;

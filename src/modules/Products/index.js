@@ -34,8 +34,7 @@ const Products = () => {
       setTotalProducts(data.total);
       setCurrentPage(1); 
   };
-
-    return (
+   return (
         <div>
           <Categories />
           <div className="flex flex-col text-center w-full mt-20">
